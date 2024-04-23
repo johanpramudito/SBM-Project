@@ -94,10 +94,10 @@ void loop() {
 
     char temp_str[8];
     dtostrf(temp, 1, 2, temp_str);
-    client.publish("jhnizl/temperature", temp_str); // publish temp topic /ThinkIOT/temp
+    client.publish("jhnizl/temperature", temp_str);
     char hum_str[8];
     dtostrf(hum, 1, 2, hum_str);
-    client.publish("jhnizl/humidity", hum_str);   // publish hum topic /ThinkIOT/hum
+    client.publish("jhnizl/humidity", hum_str);
 
     Serial.print("Temperature: ");
     Serial.println(temp);
@@ -110,7 +110,7 @@ void loop() {
     char jsonString[150];
     snprintf(jsonString, sizeof(jsonString), "{\"temperature\": %.2f, \"humidity\": %.2f, \"realtimeclock\": \"%s\"}", temp, hum, formattedTime);
     
-    client.publish("jhnizl/sensordata", jsonString); // publish data to topic /ads_sensor/data
+    client.publish("jhnizl/sensordata", jsonString);
 
     Serial.println("Data published:");
     Serial.println(jsonString);
